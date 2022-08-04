@@ -85,7 +85,7 @@ let count = images.length
 let imgs =[]
 
 for (let i = 0; i < images.length; i++) {
-    imgs.push({ name: images[i], src: url+images[i], count: i + 1 })
+    imgs.push({ name: images[i].split('.')[0], src: url+images[i], count: i + 1 })
   }
 
 
