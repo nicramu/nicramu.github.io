@@ -68,7 +68,7 @@ img{
 <body>
 <div id="main">
 
-      <div id="header">
+    <div id="header">
 	  
 	  </div>
 
@@ -79,25 +79,27 @@ let images = `
 (2012) Brama 4.jpg
 `
 images = images.split('\n');
-
 let url='https://nicramu.github.io/galeria/albums/wszystko/';
 let count = images.length
+
+for (let i = 0; i < images.length; i++) {
+    images.push({ name: images[i].split('.')[0], src: url+images[i], count: i + 1 })
+  }
+
 
 document.querySelector("#header").insertAdjacentHTML("afterbegin",`<h1>Wszystkich obrazków: ${count}</h1>`)
 
 const sweeterArray = images.map(image => {
 const h2 = document.querySelector("#header");
 let html = `
-        <a href='${url}${image}'>
+        <a href='${image.url}'>
           <div id='card'>
 
             <div id='img'>
-
-              <img src='${url}${image}' />
-
+              <img src='${image.url}' />
             </div>
+            <p><span>${image.count}</span>${image.name}</p>
 
-            <p><span>${count}</span>${image}</p>
           </div>
         </a>
 `;
