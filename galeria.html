@@ -72,19 +72,13 @@ body {
 
 
 <script type="module">
-/*let images = `
-(2017) Wroclaw Dworzec Glowny WIP8.jpg
+let images = `(2017) Wroclaw Dworzec Glowny WIP8.jpg
 (2017) Wroclaw Dworzec Glowny WIP9.jpg
 (2017) Wroclaw Dworzec Glowny.jpg
 (2018) Himalaya Shrine 2.jpg
 (2018) Himalaya Shrine WIP.jpg
-(2018) Himalaya Shrine.jpg
-`*/
+(2018) Himalaya Shrine.jpg`.split('/n')
 
-import data from "https://nicramu.github.io/galeria2/files.json" assert { type: "json" };
-
-
-let images = JSON.parse(data)
 
 
 const sweeterArray = images.map(image => {
