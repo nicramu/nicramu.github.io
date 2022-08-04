@@ -71,7 +71,7 @@ body {
 
 
 
-<script defer>
+<script type="module">
 /*let images = `
 (2017) Wroclaw Dworzec Glowny WIP8.jpg
 (2017) Wroclaw Dworzec Glowny WIP9.jpg
@@ -81,7 +81,7 @@ body {
 (2018) Himalaya Shrine.jpg
 `*/
 
-import data from "https://nicramu.github.io/galeria2/files.txt" assert { type: "text/plain" };
+import data from "https://nicramu.github.io/galeria2/files.json" assert { type: "json" };
 
 
 let images = data.split('\n')
