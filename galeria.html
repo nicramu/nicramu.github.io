@@ -71,7 +71,7 @@ body {
 
 
 
-<script type="module">
+<script>
 let images = `(2017) Wroclaw Dworzec Glowny WIP8.jpg
 (2017) Wroclaw Dworzec Glowny WIP9.jpg
 (2017) Wroclaw Dworzec Glowny.jpg
@@ -83,7 +83,7 @@ let images = `(2017) Wroclaw Dworzec Glowny WIP8.jpg
 
 const sweeterArray = images.map(image => {
 const h2 = document.querySelector("p");
-let html = "<p>My new paragraph."+image+"</p><br>";
+let html = "<p>My new paragraph."+image+"</p>";
 h2.insertAdjacentHTML("afterend", html);
 })
 </script>
