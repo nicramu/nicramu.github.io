@@ -83,7 +83,7 @@ images = images.split('\n');
 let url='https://nicramu.github.io/galeria/albums/wszystko/';
 let count = images.length
 
-document.querySelector("#header").insertAdjacentHTML("afterbegin",'<h1>Wszystkich obrazków: ${count}</h1>')
+document.querySelector("#header").insertAdjacentHTML("afterbegin",`<h1>Wszystkich obrazków: ${count}</h1>`)
 
 const sweeterArray = images.map(image => {
 const h2 = document.querySelector("#header");
