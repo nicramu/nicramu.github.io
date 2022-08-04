@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 1; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 0.8;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div style="text-align:center">
+  <h2>Tabbed Image Gallery</h2>
+  <p>Click on the images below:<p>
+</div>
+
+
+
+<script type="module">
+/*let images = `
+(2017) Wroclaw Dworzec Glowny WIP8.jpg
+(2017) Wroclaw Dworzec Glowny WIP9.jpg
+(2017) Wroclaw Dworzec Glowny.jpg
+(2018) Himalaya Shrine 2.jpg
+(2018) Himalaya Shrine WIP.jpg
+(2018) Himalaya Shrine.jpg
+`*/
+
+import * as images from './galeria2/#files.txt';
+
+images = images.split('\n')
+
+
+const sweeterArray = images.map(image => {
+const h2 = document.querySelector("p");
+let html = "<p>My new paragraph."+image+"</p>";
+h2.insertAdjacentHTML("afterend", html);
+})
+</script>
+
+</body>
+</html>
