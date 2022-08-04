@@ -77,9 +77,9 @@ let images = `(2017) Wroclaw Dworzec Glowny WIP8.jpg
 (2017) Wroclaw Dworzec Glowny.jpg
 (2018) Himalaya Shrine 2.jpg
 (2018) Himalaya Shrine WIP.jpg
-(2018) Himalaya Shrine.jpg`.split('/n')
+(2018) Himalaya Shrine.jpg`
 
-
+images = images.split('\n')
 
 const sweeterArray = images.map(image => {
 const h2 = document.querySelector("p");
