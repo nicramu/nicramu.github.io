@@ -3,90 +3,104 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-  box-sizing: border-box;
+html {
+    background-color: #111;
+    color: #fff;
+  }
+  
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+#main{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-body {
-  margin: 0;
-  font-family: Arial;
+#header{
+    width: 100%;
+    text-align: center;
 }
 
-/* The grid: Four equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
+#card{
+    margin: 25px 10px;
+    border-radius: 10px;
+    position: relative;
+    width: 250px;
+    background-color: #333;
+    box-shadow: 0 40px 60px -6px black;
 }
 
-/* Style the images inside the grid */
-.column img {
-  opacity: 1; 
-  cursor: pointer; 
+p{
+    text-align: center;
+    padding: 10px;
+    margin: 0;
 }
 
-.column img:hover {
-  opacity: 0.8;
+span{
+    background-color: rgba(0,135,255,0.5);
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 5px;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The expanding image container */
-.container {
-  position: relative;
-  display: none;
-}
-
-/* Expanding image text */
-#imgtext {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-size: 20px;
-}
-
-/* Closable button inside the expanded image */
-.closebtn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
+a{
+    text-decoration: none;
+    color: inherit;
+  
 }
 </style>
 </head>
 <body>
+<div id="main">
 
-<div style="text-align:center">
-  <h2>Tabbed Image Gallery</h2>
-  <p>Click on the images below:<p>
-</div>
+      <div id="header">
+	  <h1>Wszystkich obrazków: {count}</h1>
+	  </div>
 
-
-
-<script>
-let images = `(2017) Wroclaw Dworzec Glowny WIP8.jpg
+<script defer>
+let images = `
+(2017) Wroclaw Dworzec Glowny WIP8.jpg
 (2017) Wroclaw Dworzec Glowny WIP9.jpg
 (2017) Wroclaw Dworzec Glowny.jpg
 (2018) Himalaya Shrine 2.jpg
 (2018) Himalaya Shrine WIP.jpg
-(2018) Himalaya Shrine.jpg`
+(2018) Himalaya Shrine.jpg
+`
+images = images.split('\n');
 
-images = images.split('\n')
+let url='https://nicramu.github.io/galeria/albums/wszystko/';
+let count = images.length
+
 
 const sweeterArray = images.map(image => {
-const h2 = document.querySelector("p");
-let html = "<p>My new paragraph."+image+"</p>";
+const h2 = document.querySelector("#header");
+let html = `
+        <a href='${url}${image}'>
+          <div id='card'>
+
+            <div id='img'>
+
+              <img src='${url}${image}' />
+
+            </div>
+
+            <p><span>${count}</span>${image}</p>
+          </div>
+        </a>
+`;
 h2.insertAdjacentHTML("afterend", html);
 })
 </script>
-
+</div>
 </body>
 </html>
