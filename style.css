@@ -3,6 +3,7 @@
 
 
 body, html, canvas {
+  overflow: hidden;
   overscroll-behavior: none;
   background-color: #010111;
   z-index: 1;
