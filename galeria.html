@@ -288,7 +288,7 @@ h2.insertAdjacentHTML("afterend", html);
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  var lazyloadImages = document.querySelectorAll("img");    
+  var lazyloadImages = document.querySelectorAll("img.lazy");    
   var lazyloadThrottleTimeout;
   
   function lazyload () {
