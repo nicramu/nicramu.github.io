@@ -1,4 +1,14 @@
 /*Downloaded from https://www.codeseek.co/Jeremboo/css-3d-card-moved-by-mobile-accelerometer-OyBaLa */
+
+function getAccel(){
+  DeviceMotionEvent.requestPermission().then(response => {
+      if (response == 'granted') {
+          console.log("accelerometer permission granted");
+          // Do stuff here
+      }
+  });
+}
+
 var posX = document.getElementById("pos-x"),
     posY = document.getElementById("pos-y"),
     posZ = document.getElementById("pos-z"),
