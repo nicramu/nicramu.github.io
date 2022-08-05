@@ -9,16 +9,20 @@ function getAccel(){
   });
 }
 
-var device = myApp.device.os;
-switch(device){
-   case 'ios':
-      $$("#accelPermsButton").show();
-   break;
-   case 'android':
-       $$("#accelPermsButton").hide();
-   break;
-   default:
-      $$("#accelPermsButton").hide();
+function ClickRequestDeviceMotionEvent () {
+  window.DeviceMotionEvent.requestPermission()
+    .then(response => {
+      if (response === 'granted') {
+        window.addEventListener('devicemotion',
+          () => { console.log('DeviceMotion permissions granted.') },
+          (e) => { throw e }
+      )} else {
+        console.log('DeviceMotion permissions not granted.')
+      }
+    })
+    .catch(e => {
+      console.error(e)
+    })
 }
 
 var posX = document.getElementById("pos-x"),
