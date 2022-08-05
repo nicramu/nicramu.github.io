@@ -8,6 +8,7 @@ function getAccel(){
       }
   });
 }
+getAccel();
 
 var posX = document.getElementById("pos-x"),
     posY = document.getElementById("pos-y"),
