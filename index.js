@@ -9,6 +9,17 @@ function getAccel(){
     });
 }
 
+var device = myApp.device.os;
+switch(device){
+   case 'ios':
+      $$("#accelPermsButton").show();
+   break;
+   case 'android':
+       $$("#accelPermsButton").hide();
+   break;
+   default:
+      $$("#accelPermsButton").hide();
+}
 
 var posX = document.getElementById("pos-x"),
     posY = document.getElementById("pos-y"),
