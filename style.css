@@ -183,4 +183,11 @@ text-decoration: none;
   height: 1em;
 }
 
+button#accelPermsButton {
+  position: absolute;
+  left: 0;
+  padding: 1em;
+  top: 0;
+}
+
 }

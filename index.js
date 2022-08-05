@@ -9,7 +9,17 @@ function getAccel(){
   });
 }
 
-
+var device = myApp.device.os;
+switch(device){
+   case 'ios':
+      $$("#ios").show();
+   break;
+   case 'android':
+       $$("#ios").hide();
+   break;
+   default:
+      $$("#ios").hide();
+}
 
 var posX = document.getElementById("pos-x"),
     posY = document.getElementById("pos-y"),
