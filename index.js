@@ -9,17 +9,9 @@ function getAccel(){
     });
 }
 
-var device = myApp.device.os;
-switch(device){
-   case 'ios':
-      $$("button#accelPermsButton").show();
-   break;
-   case 'android':
-       $$("button#accelPermsButton").hide();
-   break;
-   default:
-      $$("button#accelPermsButton").hide();
-}
+if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+  document.querySelector("#accelPermsButton").style.display = 'none'
+  }
 
 var posX = document.getElementById("pos-x"),
     posY = document.getElementById("pos-y"),
