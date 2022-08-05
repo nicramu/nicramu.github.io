@@ -10,7 +10,7 @@ function getAccel(){
 }
 
 if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-  document.querySelector("#accelPermsButton").style.display = 'none'
+  document.querySelector("#accelPermsButton").style.display = 'block'
   }
 
 var posX = document.getElementById("pos-x"),
