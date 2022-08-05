@@ -1,38 +1,15 @@
 /*Downloaded from https://www.codeseek.co/Jeremboo/css-3d-card-moved-by-mobile-accelerometer-OyBaLa */
 
-window.onload = function () {
-askPermission();
- function askPermission() {
-    // feature detect
-    if (typeof DeviceOrientationEvent.requestPermission === "function") {
-      DeviceOrientationEvent.requestPermission()
-        .then(permissionState => {
-          if (permissionState === "granted") {
-            window.addEventListener("deviceorientation", () => {});
-          }
-        })
-        .catch(console.error);
-    } else {
-      // handle regular non iOS 13+ devices
-    }
-  }
+function getAccel(){
+  DeviceMotionEvent.requestPermission().then(response => {
+      if (response == 'granted') {
+          console.log("accelerometer permission granted");
+          // Do stuff here
+      }
+  });
 }
 
-function ClickRequestDeviceMotionEvent () {
-  window.DeviceMotionEvent.requestPermission()
-    .then(response => {
-      if (response === 'granted') {
-        window.addEventListener('devicemotion',
-          () => { console.log('DeviceMotion permissions granted.') },
-          (e) => { throw e }
-      )} else {
-        console.log('DeviceMotion permissions not granted.')
-      }
-    })
-    .catch(e => {
-      console.error(e)
-    })
-}
+
 
 var posX = document.getElementById("pos-x"),
     posY = document.getElementById("pos-y"),
