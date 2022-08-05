@@ -12,13 +12,13 @@ function getAccel(){
 var device = myApp.device.os;
 switch(device){
    case 'ios':
-      $$("button#accelPermsButton").show();
+      $$("#accelPermsButton").show();
    break;
    case 'android':
-       $$("button#accelPermsButton").hide();
+       $$("#accelPermsButton").hide();
    break;
    default:
-      $$("button#accelPermsButton").hide();
+      $$("#accelPermsButton").hide();
 }
 
 var posX = document.getElementById("pos-x"),
