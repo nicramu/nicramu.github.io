@@ -172,6 +172,13 @@ a{
 text-decoration: none;
 }
 
+button#accelPermsButton {
+  position: absolute;
+  left: 0;
+  padding: 1em;
+  bottom: 10px;
+}
+
 @media only screen and (max-width: 680px){
 .card {
   width : 90%;
@@ -183,11 +190,5 @@ text-decoration: none;
   height: 1em;
 }
 
-button#accelPermsButton {
-  position: absolute;
-  left: 0;
-  padding: 1em;
-  bottom: 10px;
-}
 
 }
