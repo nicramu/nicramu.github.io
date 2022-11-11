@@ -1,5 +1,11 @@
-<html>
+<!doctype html>
+
+<html lang="pl">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎂 ho ho ho</title>
+
 <script async>
 async function asd(){
 const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
@@ -15,10 +21,11 @@ const onFrame = () =>{
     for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
    let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
   // console.log(volumeMeterEl)
-  if(volumeMeterEl>0.1){alert("hoho")}
-    window.requestAnimationFrame(onFrame);
+  if(volumeMeterEl>0.2){alert("hoho")}
+   // window.requestAnimationFrame(onFrame);
 };
-window.requestAnimationFrame(onFrame);}
+//window.requestAnimationFrame(onFrame);
+}
 asd()
 </script>
 </head>
