@@ -41,7 +41,7 @@ const onFrame = () =>{
    let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
    console.log(volumeMeterEl)
 
-  if(volumeMeterEl>0.2){
+  if(volumeMeterEl>0.4){
       document.getElementById('tort').src = "./tort_off.png";
       document.getElementById('done').innerText = "Na pewno się spełni! 🤗";
 window.requestAnimationFrame()
