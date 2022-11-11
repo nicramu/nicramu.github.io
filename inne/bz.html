@@ -1,0 +1,30 @@
+<html>
+<head>
+<script async>
+async function asd(){
+const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+const audioContext = new AudioContext();
+const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
+const analyserNode = audioContext.createAnalyser();
+mediaStreamAudioSourceNode.connect(analyserNode);
+
+const pcmData = new Float32Array(analyserNode.fftSize);
+const onFrame = () =>{
+    analyserNode.getFloatTimeDomainData(pcmData);
+    let sumSquares = 0.0;
+    for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
+   let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
+  // console.log(volumeMeterEl)
+  if(volumeMeterEl>0.1){alert("hoho")}
+    window.requestAnimationFrame(onFrame);
+};
+window.requestAnimationFrame(onFrame);}
+asd()
+</script>
+</head>
+<body>
+
+
+test
+</body>
+</html>
