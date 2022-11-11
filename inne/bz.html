@@ -45,7 +45,7 @@ const onFrame = () =>{
    document.getElementById('log').innerText = volumeMeterEl
 
 
-  if(volumeMeterEl>0.5){
+  if(volumeMeterEl>0.4){
       document.getElementById('tort').src = "./tort_off.png";
       document.getElementById('done').innerText = "Na pewno się spełni! 🤗";
 window.requestAnimationFrame()
