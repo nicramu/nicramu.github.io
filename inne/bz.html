@@ -39,7 +39,9 @@ const onFrame = () =>{
     let sumSquares = 0.0;
     for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
    let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
-   console.log(volumeMeterEl)
+  
+   document.getElementById('log').innerText = volumeMeterEl
+
 
   if(volumeMeterEl>0.4){
       document.getElementById('tort').src = "./tort_off.png";
@@ -57,5 +59,6 @@ asd()
 <div id="text">Pomyśl życzenie i zdmuchnij świeczkę (dmuchnij w mikrofon)</div>
 <img src="./tort_on.png" id="tort"/>
 <div id="done"></div>
+<p id="log"></p>
 </body>
 </html>
