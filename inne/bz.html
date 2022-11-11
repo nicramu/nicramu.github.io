@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>🎂 ho ho ho</title>
 
+  <style>
+    body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+	flex-direction: column;	
+	font-family: Lato;
+	    background-color: #0e0818;
+    color: #fff;
+}
+  </style>
 <script async>
 async function asd(){
 const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
@@ -20,18 +34,23 @@ const onFrame = () =>{
     let sumSquares = 0.0;
     for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
    let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
-  // console.log(volumeMeterEl)
-  if(volumeMeterEl>0.2){alert("hoho")}
-   // window.requestAnimationFrame(onFrame);
+   console.log(volumeMeterEl)
+
+  if(volumeMeterEl>0.2){
+      document.getElementById('tort').src = "./tort_off.png";
+      document.getElementById('done').innerText = "Na pewno się spełni! 🤗";
+window.requestAnimationFrame()
+  }
+    window.requestAnimationFrame(onFrame);
 };
-//window.requestAnimationFrame(onFrame);
+window.requestAnimationFrame(onFrame);
 }
 asd()
 </script>
 </head>
 <body>
-
-
-test
+<div id="text">Pomyśl życzenie i zdmuchnij świeczkę (dmuchnij w mikrofon)</div>
+<img src="./tort_on.png" id="tort"/>
+<div id="done"></div>
 </body>
 </html>
