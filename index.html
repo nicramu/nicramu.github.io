@@ -1,81 +1,30 @@
 <html>
-
 <head>
-<link rel="stylesheet" href="style.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<title>Marcin Urbaniak - portfolio</title>
-  
-  
-<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-<link rel="manifest" href="icons/site.webmanifest">
-<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="favicon.ico">
-<meta name="msapplication-TileColor" content="#00aba9">
-<meta name="msapplication-config" content="icons/browserconfig.xml">
-<meta name="theme-color" content="#000">	  
-  
-  
+<script async>
+async function asd(){
+const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+const audioContext = new AudioContext();
+const mediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
+const analyserNode = audioContext.createAnalyser();
+mediaStreamAudioSourceNode.connect(analyserNode);
+
+const pcmData = new Float32Array(analyserNode.fftSize);
+const onFrame = () =>{
+    analyserNode.getFloatTimeDomainData(pcmData);
+    let sumSquares = 0.0;
+    for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
+   let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
+  // console.log(volumeMeterEl)
+  if(volumeMeterEl>0.1){alert("hoho")}
+    window.requestAnimationFrame(onFrame);
+};
+window.requestAnimationFrame(onFrame);}
+asd()
+</script>
 </head>
-
 <body>
-<video loop muted autoplay poster="">
-<source src="back.mp4" type="video/mp4">
-</video>
-
-<button id="accelPermsButton" onclick="getAccel()">enable gyro</button>
-
-<div style="display: none;">
-  <h3>Watch on mobile</h3>
-  <ul>
-    <li>X beta : <span id="pos-x"></span></li>
-    <li>Y gamma : <span id="pos-y"></span></li>
-    <li>Z alpha : <span id="pos-z"></span></li>
-  </ul>
-</div>
-
-<div class="card-wrapper">
-
-  <div id="card-1" class="card">
-
-    
-      
-      
-      	<h2><a href="#">Marcin Urbaniak</a></h2>
-					
-      
-     <h1> 
-     <ul>
-					<li><a href="https://www.behance.net/nicramu" target="_blank" class="button"><i class="fa fa-behance"></i></a></li>
-					<li><a href="https://p3d.in/u/nicramu" target="_blank" class="button"><i class="fa fa-cube"></i></a></li>
-					<li><a href="https://www.youtube.com/user/goten22pl/" target="_blank" class="button"><i class="fa fa-youtube"></i></a></li>
-					<li><a href="./galeria.html" target="_blank" class="button"><i class="fa fa-ellipsis-h"></i></a></li>
-					<li><a href="https://github.com/nicramu" target="_blank" class="button"><i class="fa fa-github"></i></a></li>
-
-			</ul>    
-      </h1>
 
 
-  </div>
-</div>
-
-<p class="f">
-<a href="https://www.behance.net/nicramu">behance</a> | 
-<a href="https://p3d.in/u/nicramu">p3d.in</a> | 
-<a href="https://www.youtube.com/user/goten22pl/">YouTube</a> | 
-<a href="./galeria.html">galeria</a> |
-<a href="https://github.com/nicramu">github</a>
-</p>
-  
-  
-
-    <script  src="index.js"></script>
-
-
-
-
+test
 </body>
-
 </html>
