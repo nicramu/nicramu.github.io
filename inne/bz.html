@@ -42,7 +42,7 @@ const onFrame = () =>{
     for (const amplitude of pcmData) { sumSquares += amplitude*amplitude; }
    let volumeMeterEl = Math.sqrt(sumSquares / pcmData.length);
   
-   document.getElementById('log').innerText = volumeMeterEl
+  // document.getElementById('log').innerText = volumeMeterEl
 
 
   if(volumeMeterEl>0.4){
